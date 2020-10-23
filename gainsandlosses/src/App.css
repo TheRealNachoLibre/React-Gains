@@ -4,3 +4,32 @@
   padding: 0; 
   font-family: 'Monserrat', sans-serif;
 }
+
+body {
+  background: rgb(255,229,229);
+  background: linear-gradient(90deg, rgba(255,229,229,1) 0%, rgba(136,138,255,1) 49%, rgba(122,193,207,1) 100%);
+}
+
+.content-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.inspiration-quotes {
+  padding: 2rem;
+  font-size: 2vw;
+}
+
+.quote {
+  padding-bottom: 1rem;
+}
+
+.quote p {
+  float: right;
+}
+
+.inspiration-quotes li {
+  list-style: none;
+  padding: 1rem;
+}
+

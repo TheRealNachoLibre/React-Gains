@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { MenuItems } from "./MenuItems";
+import { FaWeightHanging } from 'react-icons/fa';
 import './Nav.css'
 import { Button } from "./../Buttons";
 
@@ -14,11 +15,11 @@ class Navbar extends Component {
   render() {
     return(
       <nav className="NavbarItems"> 
-        <h1 className="navbar-logo">Gains & Losses<i className="fab fa-react"></i></h1>
+        <h1 className="navbar-logo">Gains & Losses<i className="logo-icon"> <FaWeightHanging/> </i></h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
         </div>
-        <ul className={this.state.clicked ? 'nav-menu ctive' : 'nav-menu'}>
+        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
           {MenuItems.map((item, index) => {
             return(
               <li key={index}>
