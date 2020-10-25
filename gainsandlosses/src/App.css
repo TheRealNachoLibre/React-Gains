@@ -15,6 +15,10 @@ body {
   flex-direction: row;
 }
 
+.content-img {
+  height: auto;
+}
+
 .inspiration-quotes {
   padding: 2rem;
   font-size: 2vw;
@@ -33,3 +37,23 @@ body {
   padding: 1rem;
 }
 
+@media only screen and (max-width: 960px) {
+  .content-box {
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .content-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .inspiration-quotes {
+    padding: 2rem 3.5rem;
+    font-size: 3vw;
+  }
+
+  .inspiration-quotes ul {
+    padding: 0 1rem;
+  }
+}

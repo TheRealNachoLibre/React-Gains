@@ -3,6 +3,7 @@ import './App.css'
 import './Components/Calc.js'
 import './Components/Product.js'
 import NavBar from "./Components/Navbar/Nav"
+import Carousel from './Components/Carosel/Carosel'
 import Image from "../src/img1.jpg"
 
 //the anchor in text-box will have an onClick to open the calculator
@@ -15,7 +16,7 @@ function App() {
       <NavBar />
       <body>
         <div className="content-box">
-          <img src={ Image } alt="woman workingout"></img>
+          <img className="content-img" src={ Image } alt="woman workingout"></img>
           <div className="inspiration-quotes">
             <h3>The weight which weighs you down can be used to lift you up again.</h3>
             <ul>
@@ -35,7 +36,6 @@ function App() {
             </ul>
           </div>
         </div>
-
       </body>
     </div>
   );
