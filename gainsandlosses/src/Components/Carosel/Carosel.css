@@ -1,3 +1,30 @@
-.img {
-    width: 100%;
+.carousel-box {
+    width: 95%;
+}
+
+
+.carousel-box img {
+    height: auto;
+    width: 90%;
+}
+
+button.slick-arrow.slick-next {
+    width: 30%;
+}
+
+.carousel-box h3 {
+    position: absolute;
+}
+
+@media only screen and (min-width: 1100px) {
+    .carousel-box {
+        height: 500px;
+        width: 60%;
+    }
+    button.slick-arrow.slick-next {
+        width: 40%;
+    }
+    .carousel-box h3 {
+        padding-left: 100px;
+    }
 }

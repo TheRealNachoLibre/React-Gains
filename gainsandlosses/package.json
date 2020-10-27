@@ -12,7 +12,9 @@
     "react-dom": "^16.14.0",
     "react-icons": "^3.11.0",
     "react-scripts": "^3.4.4",
-    "reactstrap": "^8.6.0"
+    "react-slick": "^0.27.12",
+    "reactstrap": "^8.6.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

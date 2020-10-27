@@ -13,6 +13,7 @@ body {
 .content-box {
   display: flex;
   flex-direction: row;
+  padding-bottom: 50px;
 }
 
 .content-img {

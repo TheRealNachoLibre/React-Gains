@@ -16,12 +16,12 @@ function App() {
       <NavBar />
       <body>
         <div className="content-box">
-          <img className="content-img" src={ Image } alt="woman workingout"></img>
+          <img className="content-img" src={Image} alt="woman workingout"></img>
           <div className="inspiration-quotes">
             <h3>The weight which weighs you down can be used to lift you up again.</h3>
             <ul>
               <div className="quote">
-                <li> "Strength does not come from winning. Your struggles develop your strengths. 
+                <li> "Strength does not come from winning. Your struggles develop your strengths.
                   When you go through hardships and decide not to surrender, that is strength."</li>
                 <p>~ Arnold Schwarzenegger</p>
               </div>
@@ -36,6 +36,7 @@ function App() {
             </ul>
           </div>
         </div>
+        <Carousel />
       </body>
     </div>
   );
