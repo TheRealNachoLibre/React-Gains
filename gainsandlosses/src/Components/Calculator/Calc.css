@@ -1,0 +1,9 @@
+.page-body {
+    text-align: center;
+}
+
+.calc-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 69px;
+}
