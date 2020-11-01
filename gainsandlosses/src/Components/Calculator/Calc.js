@@ -1,5 +1,6 @@
 import React from "react";
 import "./Calc.css";
+import { items } from "./CalcMessage";
 
 class Button extends React.Component {
   constructor() {
@@ -82,6 +83,7 @@ class Calculator extends React.Component {
       isWeightValid: false,
       weightFieldLabel: "weight",
       targetFieldLabel: "target",
+      type: "",
       error: {
         weight: false,
         weightField: false,
@@ -93,7 +95,42 @@ class Calculator extends React.Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.calculate = this.calculate.bind(this);
   }
+
+  calculate() {
+    let i = "";
+    let curr = this.state.weightValue;
+    let tar = this.state.targetValue;
+    if (curr === 0 || tar === 0) {
+        i = ""; 
+    }
+    if (tar > curr) {
+      //gain
+      i = "gain";
+    } else if (tar + 150 < curr) {
+      //slow
+      i = "slow";
+    } else if (tar < curr) {
+      //lose
+      i = "lose";
+    } else {
+      //maintain
+      i = "maintain";
+    }
+    let found = items.find((item) => item.id === i);
+    return (
+      <div>
+        <ul className={this.props.value ? "hiddenList" : "showList"}>
+          <li>{found.type}</li>
+          <li>{found.frequency}</li>
+          <li>{found.diet}</li>
+          <li>{found.supplements}</li>
+        </ul>
+      </div>
+    );
+  }
+
   handleInput(field, value) {
     switch (field) {
       case "weight":
@@ -121,6 +158,8 @@ class Calculator extends React.Component {
 
   isFieldsEmpty() {
     if (!this.state.weightValue || !this.state.targetValue) {
+      //the goal was to ensure that the values are integers and not empty fields, however it broke when implemented
+      // (!this.state.targetValue.isInteger() || !this.state.weightValue.isInteger())) {
       this.setState((prevState) => ({
         error: {
           ...prevState.error,
@@ -140,15 +179,18 @@ class Calculator extends React.Component {
       return false;
     }
   }
+
   handleClick() {
     console.log("Any weight errors: ", this.state.error.weight);
     console.log("Any target errors: ", this.state.error.target);
+    //if the fields aren't empty and there are no errors with the integers call the calculate function
     if (
       !this.isFieldsEmpty() &&
       !this.state.error.weight &&
       !this.state.error.target
     ) {
-    } //calculate
+      console.log("no errors for the input fields");
+    }
   }
 
   render() {
@@ -174,7 +216,15 @@ class Calculator extends React.Component {
             value={this.state.targetValue}
             type={this.state.targetFieldLabel}
           />
-          <Button handleClick={this.handleClick} />
+          <Button handleClick={this.handleClick} calc={this.calc} />
+        </Box>
+
+        {/* This is where the response will be displayed */}
+        <Box className="resultBox">
+          <h3>The Recommended Plan:</h3>
+          <div value={!this.state.error.weight || !this.state.error.target}>
+            {this.calculate()}
+          </div>
         </Box>
       </div>
     );

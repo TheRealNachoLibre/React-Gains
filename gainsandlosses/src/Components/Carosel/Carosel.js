@@ -13,7 +13,6 @@ var settings = {
     slidesToScroll: 1
 };
 
-const background = 'https://image.freepik.com/free-vector/black-dark-3d-low-poly-geometric-background_79145-393.jpg'
 
 class SimpleSlider extends React.Component {
 

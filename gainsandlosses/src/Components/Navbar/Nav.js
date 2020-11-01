@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { FaWeightHanging } from "react-icons/fa";
 import "./Nav.css";
-import Calc from "../Calculator/Calc";
-import Login from "../Login/Login";
 import { Link } from "react-router-dom";
 class Navbar extends Component {
   state = { clicked: false };

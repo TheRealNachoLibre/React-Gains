@@ -1,10 +1,5 @@
 import React from "react"; 
 import "./Login.css"; 
-// export default function login() {
-//     return (
-//     <h1>hi</h1>
-//     );
-// }
 
 class Button extends React.Component {
 	constructor() {
@@ -67,7 +62,7 @@ class InputField extends React.Component {
 	}
 }
 
-class Box extends React.Component {
+class Box1 extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -75,7 +70,7 @@ class Box extends React.Component {
 		};
 	}
 	render() {
-		return <div className="box">{this.props.children}</div>;
+		return <div className="box1">{this.props.children}</div>;
 	}
 }
 
@@ -134,7 +129,7 @@ export default class Login extends React.Component {
 			if (
 				lastAtPos < lastDotPos &&
 				lastAtPos > 0 &&
-				email.indexOf("@@") == -1 &&
+				email.indexOf("@@") === -1 &&
 				lastDotPos > 2 &&
 				email.length - lastDotPos > 2
 			) {
@@ -206,7 +201,7 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<div className="loginContainer">
-				<Box>
+				<Box1>
 					<ErrorMessage
 						msg={this.state.error.message}
 						show={this.state.error.email || this.state.error.pass}
@@ -226,7 +221,7 @@ export default class Login extends React.Component {
 						type={this.state.passFieldLabel}
 					/>
 					<Button handleClick={this.handleClick} />
-				</Box>
+				</Box1>
 			</div>
 		);
 	}
