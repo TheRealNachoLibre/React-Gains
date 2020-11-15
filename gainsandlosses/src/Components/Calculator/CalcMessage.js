@@ -1,5 +1,12 @@
 export const items = [
     {
+        id: "welcome", 
+        type: "",
+        frequency: "",
+        diet: "",
+        supplements: [""]
+    },
+    {
         id: "gain",
         type: "Heavy lifting of freeweights ensuring focus on major muslce groups.",
         frequency: "Every other day - Sunday (or Saturday) for rest.",

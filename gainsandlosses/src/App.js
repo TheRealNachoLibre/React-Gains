@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
 import Calc from "./Components/Calculator/Calc";
-import Login from "./Components/Login/Login";
 import "./Components/Product.js";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import NavBar from "./Components/Navbar/Nav";
 import Carousel from "./Components/Carosel/Carosel";
 import Image from "../src/img1.jpg";
+import Authentication from "./Auth";
+import AuthLogin from "./AuthLogin";
 
 //the anchor in text-box will have an onClick to open the calculator
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/calculator" component={Calc} />
-            <Route path="/login" component={Login} />
+            <Route path="/sign-up" component={Authentication} />
+            <Route path="/login" component={AuthLogin} />
           </Switch>
         </div>
       </Router>

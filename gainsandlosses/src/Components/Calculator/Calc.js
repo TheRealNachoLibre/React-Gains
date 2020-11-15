@@ -1,23 +1,23 @@
 import React from "react";
 import "./Calc.css";
-import { items } from "./CalcMessage";
+import MessageOutput from "./MessageOutput"; 
+import firebase from "../../firestore"
 
-class Button extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-  }
-  render() {
-    return (
-      <div onClick={this.props.handleClick} className="btn">
-        <p>Submit</p>
-      </div>
-    );
-  }
+class Button1 extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			count: 0
+		};
+	}
+	render() {
+		return (
+			<div onClick={this.props.handleClick} className="btn">
+				<p>Submit</p>
+			</div>
+		);
+	}
 }
-
 class ErrorMessage extends React.Component {
   constructor() {
     super();
@@ -98,38 +98,29 @@ class Calculator extends React.Component {
     this.calculate = this.calculate.bind(this);
   }
 
-  calculate() {
+  calculate() {    
     let i = "";
     let curr = this.state.weightValue;
     let tar = this.state.targetValue;
-    if (curr === 0 || tar === 0) {
-        i = ""; 
+
+    if (curr === 0 || curr === null || tar === 0 || tar === null) {
+      i = "welcome";
     }
     if (tar > curr) {
       //gain
-      i = "gain";
+      i = "gains";
     } else if (tar + 150 < curr) {
       //slow
-      i = "slow";
+      i = "extreme";
     } else if (tar < curr) {
       //lose
       i = "lose";
-    } else {
+    } else if (tar === curr){
       //maintain
       i = "maintain";
     }
-    let found = items.find((item) => item.id === i);
-    return (
-      <div>
-        <ul className={this.props.value ? "hiddenList" : "showList"}>
-          <li>{found.type}</li>
-          <li>{found.frequency}</li>
-          <li>{found.diet}</li>
-          <li>{found.supplements}</li>
-        </ul>
-      </div>
-    );
   }
+
 
   handleInput(field, value) {
     switch (field) {
@@ -216,14 +207,14 @@ class Calculator extends React.Component {
             value={this.state.targetValue}
             type={this.state.targetFieldLabel}
           />
-          <Button handleClick={this.handleClick} calc={this.calc} />
+          <Button1 classNam="button1"/>
         </Box>
 
         {/* This is where the response will be displayed */}
         <Box className="resultBox">
           <h3>The Recommended Plan:</h3>
           <div value={!this.state.error.weight || !this.state.error.target}>
-            {this.calculate()}
+            <MessageOutput/>
           </div>
         </Box>
       </div>

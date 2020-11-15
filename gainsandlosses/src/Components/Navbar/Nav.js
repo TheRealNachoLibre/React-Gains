@@ -32,6 +32,9 @@ class Navbar extends Component {
             <li className="nav-links">Calculator</li>
           </Link>
           <Link to="/login">
+            <li className="nav-links">Login</li>
+          </Link>
+          <Link to="/sign-up">
             <li className="nav-links">Sign Up</li>
           </Link>
         </ul>
